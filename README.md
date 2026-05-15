@@ -55,17 +55,6 @@ src/
  └── webapp/
 ```
 
----
-
-## Screenshots
-
-Add your screenshots here.
-
-Example:
-
-```md
-![Login Page](screenshots/login.png)
-```
 
 ---
 
