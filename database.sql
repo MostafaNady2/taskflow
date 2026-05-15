@@ -1,4 +1,4 @@
-CREATE DATABASE IF NOT EXISTS jdbc_tutorial;
+CREATE DATABASE IF NOT EXISTS taskflow;
 
 USE taskflow;
 
