@@ -112,4 +112,17 @@ public class UserDao {
 		}
 		return 0;
 	}
+
+	public void updateUser(User user) {
+		String query = "update users set name = ?, email = ?, password = ? where id = ?";
+		try (Connection conn = DBUtil.getConnection(); PreparedStatement pst = conn.prepareStatement(query)) {
+			pst.setString(1, user.getName());
+			pst.setString(2, user.getEmail());
+			pst.setString(3, user.getPassword());
+			pst.setInt(4, user.getId());
+			pst.executeUpdate();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
 }

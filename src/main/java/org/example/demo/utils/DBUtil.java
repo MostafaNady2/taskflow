@@ -7,8 +7,8 @@ import java.sql.SQLException;
 public class DBUtil {
 
     private static final String URL  = "jdbc:mysql://localhost:3306/jdbc_tutorial?useSSL=false&serverTimezone=UTC";
-    private static final String USER = "YOUR_DB_USER";
-    private static final String PASS = "YOUR_DB_PASSWORD";
+    private static final String USER = "root";
+    private static final String PASS = "MY@root@615";
 
     public static Connection getConnection() throws SQLException {
         try {

@@ -51,4 +51,8 @@ public class UserService {
 		userStatics.add(highPriority);
 		return userStatics;
 	}
+
+	public void updateUser(User user) {
+		userDao.updateUser(user);
+	}
 }

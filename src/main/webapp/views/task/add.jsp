@@ -1,5 +1,5 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" 
-import="java.util.List, org.example.demo.model.Task, org.example.demo.model.User" ErrorPage="error.jsp"
+import="java.util.List, org.example.demo.model.Task, org.example.demo.model.User" errorPage="error.jsp"
 %>
 <!DOCTYPE html>
 <html lang="en">

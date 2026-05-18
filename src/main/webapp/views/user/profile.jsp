@@ -173,7 +173,7 @@
 
 				<div style="text-align: center; margin-top: 30px;">
 					<a href="tasks" class="btn btn-primary">View All Tasks</a>
-					<a href="#" class="btn btn-secondary">Edit Profile</a>
+					<a href="user/update" class="btn btn-secondary">Edit Profile</a>
 				</div>
 			</div>
 		</div>

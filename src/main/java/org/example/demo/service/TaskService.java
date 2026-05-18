@@ -32,7 +32,7 @@ public class TaskService {
 		taskDao.updateTask(task);
 	}
 
-	public List<Task> getUserTasksWithFilter(int userId, String searchBy, String sortBy) throws SQLException {
+	public List<Task> getUserTasksWithFilter(int userId, String searchBy, String sortBy, String sortOrder) throws SQLException {
 		if (searchBy != null) {
 			searchBy = searchBy.trim();
 			if (searchBy.isEmpty() || searchBy.isBlank()) {
@@ -55,12 +55,12 @@ public class TaskService {
 
 			// case 2: Only Sort (no search)
 			if (searchBy == null && sortBy != null) {
-				return sortBy(userId, sortBy);
+				return sortBy(userId, sortBy, sortOrder);
 			}
 
 			// Case 3: Both Search + Sort
 			if (searchBy != null && sortBy != null) {
-				return searchAndSort(userId, searchBy, sortBy);
+				return searchAndSort(userId, searchBy, sortBy, sortOrder);
 			}
 
 			// Case 4: Default - no filter
@@ -72,15 +72,15 @@ public class TaskService {
 		}
 	}
 
-	public List<Task> sortBy(int userId, String sortBy) throws SQLException {
-		return taskDao.getSortedTasks(userId, sortBy);
+	public List<Task> sortBy(int userId, String sortBy, String sortOrder) throws SQLException {
+		return taskDao.getSortedTasks(userId, sortBy, sortOrder);
 	}
 
 	public List<Task> searchTasks(int userId, String keyword) throws SQLException {
 		return taskDao.searchTasks(userId, keyword);
 	}
 
-	public List<Task> searchAndSort(int userId, String searchBy, String sortBy) throws SQLException {
-		return taskDao.searchAndSortTasks(userId, searchBy, sortBy);
+	public List<Task> searchAndSort(int userId, String searchBy, String sortBy, String sortOrder) throws SQLException {
+		return taskDao.searchAndSortTasks(userId, searchBy, sortBy, sortOrder);
 	}
 }

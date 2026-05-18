@@ -98,8 +98,8 @@ public class TaskDao {
 		}
 	}
 
-	public List<Task> getSortedTasks(int userId, String sortBy) throws SQLException {
-		String sql = "SELECT * FROM tasks WHERE user_id = ? ORDER BY " + sortBy;
+	public List<Task> getSortedTasks(int userId, String sortBy, String sortOrder) throws SQLException {
+		String sql = "SELECT * FROM tasks WHERE user_id = ? ORDER BY " + sortBy + " " + sortOrder;
 		try (Connection conn = DBUtil.getConnection();
 				PreparedStatement stmt = conn.prepareStatement(sql)) {
 			stmt.setInt(1, userId);
@@ -123,8 +123,8 @@ public class TaskDao {
 		return tasks;
 	}
 
-	public List<Task> searchAndSortTasks(int userId, String searchBy, String sortBy) throws SQLException {
-		String sql = "SELECT * FROM tasks WHERE user_id = ? AND (title LIKE ? OR description LIKE ?) ORDER BY " + sortBy;
+	public List<Task> searchAndSortTasks(int userId, String searchBy, String sortBy, String sortOrder) throws SQLException {
+		String sql = "SELECT * FROM tasks WHERE user_id = ? AND (title LIKE ? OR description LIKE ?) ORDER BY " + sortBy + " " + sortOrder;
 		try (Connection conn = DBUtil.getConnection();
 				PreparedStatement stmt = conn.prepareStatement(sql)) {
 			stmt.setInt(1, userId);

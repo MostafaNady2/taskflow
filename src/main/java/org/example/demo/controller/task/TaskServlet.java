@@ -27,6 +27,7 @@ public class TaskServlet extends HttpServlet {
 		User user = (User) session.getAttribute("user");
 		String search = req.getParameter("search");
 		String sortBy = req.getParameter("sortBy");
+		String sortOrder = req.getParameter("sortOrder");
 
 		if (search == null || search.trim().isEmpty()) {
 			search = null;
@@ -34,7 +35,7 @@ public class TaskServlet extends HttpServlet {
 
 		List<Task> tasks= null;
 		try {
-			tasks = taskService.getUserTasksWithFilter(user.getId(), search, sortBy);
+			tasks = taskService.getUserTasksWithFilter(user.getId(), search, sortBy, sortOrder);
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}

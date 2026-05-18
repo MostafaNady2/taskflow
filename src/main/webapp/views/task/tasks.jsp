@@ -73,6 +73,7 @@
 			User user   = (User) session.getAttribute("user");
 			String search = request.getParameter("search") ;
 			String sortBy = request.getParameter("sortBy") ;
+			String sortOrder = request.getParameter("sortOrder") ;
 			
 			if(search == null) {
 				search = "";
@@ -113,6 +114,10 @@
 						<option value="title"    <%= "title".equals(sortBy)    ? "selected" : "" %>>Title</option>
 						<option value="status"   <%= "status".equals(sortBy)   ? "selected" : "" %>>Status</option>
 						<option value="priority" <%= "priority".equals(sortBy) ? "selected" : "" %>>Priority</option>
+					</select>
+					<select name="sortOrder">
+						<option value="asc"  <%= !"desc".equals(sortOrder) ? "selected" : "" %>>&#8593;</option>
+						<option value="desc" <%=  "desc".equals(sortOrder) ? "selected" : "" %>>&#8595;</option>
 					</select>
 					<button type="submit" class="sort-btn">Apply</button>
 				</div>
